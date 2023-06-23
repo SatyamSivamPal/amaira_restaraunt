@@ -8,7 +8,7 @@
     "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "both-dev": "concurrently \" npm run dev\" \"npm --prefix ../client/ start\"",
-    "build": "babel src -d dist"
+    "build": "babel server.js -d dist"
         
   },
   "author": "",

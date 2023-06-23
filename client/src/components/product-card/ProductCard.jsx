@@ -1,7 +1,12 @@
 import React from 'react';
 import { useCart } from 'react-use-cart';
 import './product-card.css';
+import dotenv from "dotenv"
 import axios from "axios"
+
+dotenv.config()
+
+axios.defaults.baseURL = process.env.PUBLIC_URL;
 
 const ProductCard = (props) => {
     const {addItem}=useCart();
@@ -12,9 +17,9 @@ const ProductCard = (props) => {
 
     const checkouthandler = async (amount) => {
 
-        const { data:{key} } = await axios.get("http://localhost:4000/api/getkey")
+        const { data:{key} } = await axios.get("/api/getkey")
         
-        const { data:{order} } = await axios.post("http://localhost:4000/api/checkout", {
+        const { data:{order} } = await axios.post("/api/checkout", {
           amount
         })
     
